@@ -35,14 +35,19 @@ const populateTodos = () => {
   }
 }
 
+const clearTodos = () => {
+  const ol = document.getElementById('todo-list')
+  ol.innerHTML = ''
+
+}
+
 const filteredTodos = () => {
 
   //CLEAR THE LIST
-  const ol = document.getElementById('todo-list')
-  ol.innerHTML = ''
-  
+  clearTodos()
+
   // FILTER
-  const userInput = document.getElementById('filterInput').value 
+  const  userInput = parseInt(document.getElementById('filterInput').value)
   const filtered = arrayOfTodos.filter((todo) => {
     return todo.userId === userInput
   })
