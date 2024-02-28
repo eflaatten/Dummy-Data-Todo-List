@@ -30,9 +30,31 @@ const populateTodos = () => {
     const li = document.createElement("li")
     const liContent = document.createTextNode(title)
     
-    console.log('title: ', title)
     ol.appendChild(li)
     li.append(liContent)
   }
+}
 
+const clearTodos = () => {
+  const ol = document.getElementById('todo-list')
+  ol.innerHTML = ''
+
+}
+
+const filteredTodos = () => {
+
+  //CLEAR THE LIST
+  clearTodos()
+
+  // FILTER
+  const  userInput = parseInt(document.getElementById('filterInput').value)
+  const filtered = arrayOfTodos.filter((todo) => {
+    return todo.userId === userInput
+  })
+
+  // POPULATE OL WITH FILTERED LIST
+  arrayOfTodos = filtered
+
+  populateTodos()
+  
 }
